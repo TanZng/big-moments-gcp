@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    <div class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40">
+        <div class="w-full font-mono flex flex-col items-center relative z-10">
+            <h1 class="font-extrabold text-5xl text-center text-blue-600 leading-tight mt-4">
+                Error 😢
+            </h1>
+            <br>
+            <p class="font-extrabold text-9xl text-blue-600 animate-bounce">
+                 {{ error }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

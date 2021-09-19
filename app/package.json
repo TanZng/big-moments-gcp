@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tanx.dev",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^2.2.15"
+  }
+}

@@ -38,7 +38,7 @@ def upload():
 
             successful_upload = True
 
-    return render_template('upload_photo.html', 
+    return render_template('upload_photo.html',
                            successful_upload=successful_upload)
 
 
@@ -63,11 +63,16 @@ def search():
 @app.errorhandler(500)
 def server_error(e):
     logging.exception('An error occurred during a request.')
-    return render_template('error.html'), 500
+    return render_template('error.html', error=500), 500
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    logging.exception('An error occurred during a request.')
+    return render_template('error.html', error=404), 404
 
 
 if __name__ == '__main__':
     app.run(debug=True,
             host='0.0.0.0',
             port=int(os.environ.get('PORT', 8080)))
-
