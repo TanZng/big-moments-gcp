@@ -12,7 +12,6 @@ client.get_default_handler()
 client.setup_logging()
 
 app = Flask(__name__)
-app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
 @app.route('/')
@@ -52,16 +51,22 @@ def search():
     if query:
         db = firestore.Client()
         original_doc = db.collection(u'tags').document(query.lower()).get().to_dict()
+        if original_doc is None:
+            original_doc = {}
 
         doc_en = translate_query(query, db)
+        if doc_en is None:
+            doc_en = {}
 
-        doc = {**original_doc, **doc_en}
         try:
+            doc = {**original_doc, **doc_en}
             for url in doc['photo_urls']:
                 results.append(url)
+                results = list(dict.fromkeys(results))
         except TypeError as e:
             pass
-        results = list(dict.fromkeys(results))
+        except KeyError as e:
+            pass
     return render_template('search.html', query=query, results=results)
 
 
