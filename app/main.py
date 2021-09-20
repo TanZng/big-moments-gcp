@@ -5,12 +5,14 @@ from flask import Flask, render_template, request
 import google.cloud.logging
 from google.cloud import firestore
 from google.cloud import storage
+from google.cloud import translate_v2 as translate
 
 client = google.cloud.logging.Client()
 client.get_default_handler()
 client.setup_logging()
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
 @app.route('/')
@@ -49,15 +51,30 @@ def search():
 
     if query:
         db = firestore.Client()
-        doc = db.collection(u'tags').document(query.lower()).get().to_dict()
+        original_doc = db.collection(u'tags').document(query.lower()).get().to_dict()
 
+        doc_en = translate_query(query, db)
+
+        doc = {**original_doc, **doc_en}
         try:
             for url in doc['photo_urls']:
                 results.append(url)
         except TypeError as e:
             pass
-
+        results = list(dict.fromkeys(results))
     return render_template('search.html', query=query, results=results)
+
+
+def translate_query(query, db):
+    doc_en = {}
+    translate_client = translate.Client()
+    result = translate_client.detect_language(query)["language"]
+
+    if result != "en":
+        en_query = translate_client.translate(query, target_language="en")['translatedText']
+        doc_en = db.collection(u'tags').document(en_query.lower()).get().to_dict()
+
+    return doc_en
 
 
 @app.errorhandler(500)
