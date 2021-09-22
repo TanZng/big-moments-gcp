@@ -69,16 +69,16 @@ def get_likelihood(client, image):
         person_count += 1
         likelihoods.append('person')
 
-        if likelihood_name[face.anger_likelihood]:
+        if likelihood_name[face.anger_likelihood] in ('LIKELY', 'VERY_LIKELY'):
             likelihoods.extend(['anger', 'angry'])
 
-        if likelihood_name[face.joy_likelihood]:
+        if likelihood_name[face.joy_likelihood] in ('LIKELY', 'VERY_LIKELY'):
             likelihoods.extend(['happy', 'smile', 'joy'])
 
-        if likelihood_name[face.sorrow_likelihood]:
+        if likelihood_name[face.sorrow_likelihood] in ('LIKELY', 'VERY_LIKELY'):
             likelihoods.extend(['sorrow', 'sad', 'cry'])
 
-        if likelihood_name[face.surprise_likelihood]:
+        if likelihood_name[face.surprise_likelihood] in ('LIKELY', 'VERY_LIKELY'):
             likelihoods.extend(['surprise', 'surprised person'])
 
     if person_count == 1:
