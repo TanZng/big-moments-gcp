@@ -19,9 +19,13 @@ Broad improvements:
 
 <img src="https://drive.google.com/uc?export=view&id=16ojUaTiZ8LnDQNNSz0Ps88pElChFnvkq" data-canonical-src="https://drive.google.com/uc?export=view&id=16ojUaTiZ8LnDQNNSz0Ps88pElChFnvkq" height="400" />
 
+🔗 [link broken?](https://drive.google.com/uc?export=view&id=16ojUaTiZ8LnDQNNSz0Ps88pElChFnvkq)
+
 ### Identify objects, places, logos, animal breeds, etc.
 
 <img src="https://drive.google.com/uc?export=view&id=1InSgqxATvfIR1G5qOtiQmJwRkRSgeHvQ" data-canonical-src="https://drive.google.com/uc?export=view&id=1InSgqxATvfIR1G5qOtiQmJwRkRSgeHvQ" height="400" />
+
+🔗 [link broken?](https://drive.google.com/uc?export=view&id=1InSgqxATvfIR1G5qOtiQmJwRkRSgeHvQ)
 
 > The puppy is using an iPad 🐶!
 
