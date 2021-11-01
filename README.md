@@ -4,6 +4,7 @@ Project for the `Big Moments: Developer Edition GCP Challenge` | #INSIDEGoogleCl
 Big Moments is a Google Photos Clone for the INSIDE Google Cloud '21 Challenge.
 
 Broad improvements:
+
 - [x] Better UI
 - [x] Better object detection
 - [x] Better CI/CD in GCP
@@ -67,7 +68,8 @@ Broad improvements:
 - [x] Add a custom domain.
   - [x] Add an **HTTPS Load Balancing**.
 
-- [x] Update function from **Cloud Functions**. 
+- [x] Update function from **Cloud Functions**.
+
 ```bash
 gcloud functions deploy photo_analysis_service \
        --source=https://source.developers.google.com/projects/project-id/repos/repo-name/moveable-aliases/main/paths/function/ \
@@ -75,7 +77,9 @@ gcloud functions deploy photo_analysis_service \
        --trigger-event=google.storage.object.finalize \
        --set-env-vars BUCKET=big-moments-bucket
 ```
+
 - [x] Update container images from **Compute Engine** VM instance. 
+
 ```bash
 gcloud compute instances update-container instance-name --zone us-central1-a \
        --container-image=gcr.io/project-id/repo@sha256:hash
